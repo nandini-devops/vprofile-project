@@ -1,8 +1,8 @@
 FROM openjdk:11 as BUILD_IMAGE
 RUN apt update && apt install maven -y
 RUN git clone https://github.com/nandini-devops/vprofile-project.git
-RUN cd vprofile-project && git checkout docker
-RUN mvn install
+RUN cd vprofile-project && git checkout containers && mvn install
+#RUN mvn install
 #echo "installation in progress..."
 FROM tomcat:9-jre11
 RUN rm -rf /usr/local/tomcat/webapps/* 
